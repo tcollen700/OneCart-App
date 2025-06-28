@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <script defer src="js/index.js"></script>
+  <title>Shop</title>
+</head>
+<body onload="renderProducts(), updateCartDisplay()">
+  <header>
+    <h1><span>One</span>Cart</h1>
+    <div class="header-cart-and-user-info">
+      <div class="header-cart" onclick="showOrHideCart()">
+        <svg class="header-cart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85 2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85" stroke-width="1" stroke="currentColor" /></svg>
+        <div class="header-cart-total">
+          R<span></span>
+        </div>
+        <span class="cart-items-count"></span>
+        <div class="cart-container" hidden="True">
+          <h3>Cart</h3>
+          <div class="cart-container-table">
+          </div>
+          <div class="cart-container-summary">
+            <span>Items in cart</span>
+            <span>:</span>
+            <strong><span class="cart-container-summary-items-count"></span> items</strong>
+            <span>Cart total</span>
+            <span>:</span>
+            <strong>R<span class="cart-container-summary-total"></span></strong>
+            <!--<span>Delivery fee</span><span>:</span><span>R35</span>-->
+          </div>
+          <button class="cart-place-order-button">Place order</button>
+        </div>
+      </div>
+      <div class="header-user-account">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M5.85 17.1q1.275-.975 2.85-1.537T12 15t3.3.563t2.85 1.537q.875-1.025 1.363-2.325T20 12q0-3.325-2.337-5.663T12 4T6.337 6.338T4 12q0 1.475.488 2.775T5.85 17.1M12 13q-1.475 0-2.488-1.012T8.5 9.5t1.013-2.488T12 6t2.488 1.013T15.5 9.5t-1.012 2.488T12 13m0 9q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" stroke-width="1" stroke="currentColor" /></svg>
+        <div>
+          Guest user
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="site-promo">
+    <p>
+      FREE SHIPPING ON ALL ORDERS ABOVE <strong>R200.00</strong> | GET <strong>10% OFF</strong> ON FIRST ORDER TnCs Apply
+    </p>
+  </div>
+  <main>
+    <h1>Products</h1>
+    <div class="products-grid">
+
+    </div>
+  </main>
+
+</body>
+</html>
