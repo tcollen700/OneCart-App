@@ -1,1 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin-top: 80px;
+}
+header {
+    height: 50px;
+    width: 100%;
+    background-color: #1d57cbff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+}
 
+header h1 {
+    font-size: 16pt;
+    margin-top: -10px;
+    color: #06145fff;
+    font-weight: 1000;
+}
+header h1 span {
+    font-size: 24pt;
+    color: white;
+    margin-right: -5px;
+    font-weight: 100;
+}
+.header-cart-and-user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.header-cart-icon {
+    width: 35px;
+    color: #06145fff;
+}
+.cart-items-count {
+    font-size: 8pt;
+    color: #ffffffff;
+    background-color: #093d989f;
+    padding: 2px 4px;
+    border-radius: 15px;
+    position: absolute;
+    top: 1px;
+    right: 2px;
+}
+.header-cart-total {
+    font-size: 8pt;
+    color: #ffffffff;
+    background-color: #093d989f;
+    padding: 2px 4px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -5px;
+    font-weight: 500;
+}
+.header-user-account {
+    display: flex;
+    width: 75px;
+    justify-content: center;
+    position: relative;
+}
+.header-user-account svg {
+    width: 35px;
+    color: #06145fff;
+}
+.header-user-account div {
+    font-size: 8pt;
+    color: #ffffffff;
+    background-color: #093d989f;
+    padding: 2px 4px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: -5px;
+}
+.site-promo {
+    background-color: #5174c0ff;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    font-size: 11pt;
+    padding: 3px 0;
+    position: fixed;
+    top: 50px;
+    z-index: 1;
+}
+.site-promo p {
+    animation: sliding-text 10s linear 0s infinite alternate;
+}
+
+@keyframes sliding-text {
+    0% {
+        margin-left: 110vw;
+    }
+    100% {
+        margin-left: -110vw;
+    }
+}
+main {
+    padding: 5px;
+}
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 2.5px;
+    padding: 5px;
+    background-color: #f1f0f0ff;
+}
+
+.product {
+    borde: 1px solid black;
+    padding: 10px 5px;
+    background-color: white;
+}
+.product-image {
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: white;
+}
+.product-image > img {
+    height: 150px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.product-info p {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+    height: 30px;
+}
+product-info strong {
+    font-size: 12px;
+}
+.add-to-cart-button {
+    width: 100%;
+    border: none;
+    background-color: #1d57cbff;
+}
+.add-to-cart-button svg {
+    width: 20px;
+}
+.product-quantity button,
+.product-quantity input {
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    background-color: #1d57cbff;
+    outline: none;
+    text-align: center;
+}
+.cart-container {
+    background-color: white;
+    width: 300px;
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 5000;
+}
+.cart-container-summary {
+    padding-left: 10px;
+    display: grid;
+    grid-template-columns: 1fr 10px 1fr;
+    font-size: 10pt;
+}
+
+.cart-container-table {
+    font-size: 10px;
+    padding: 5px 0 20px 0;
+}
+.cart-container-table img {
+    display: block;
+    height: 30px;
+    margin: auto;
+}
+.cart-container-table tr {
+    display: grid;
+    grid-template-columns: 30px 1fr 30px 30px 60px;
+    gap: 10px;
+    margin: 5px 0;
+}
+.cart-container-p {
+    text-align: center;
+    padding: 5px 0 20px 0;
+}
+.cart-place-order-button {
+    display: block;
+    padding: 5px;
+    border: none;
+    background-color: #1d57cbff;
+    margin: 10px auto;
+}
