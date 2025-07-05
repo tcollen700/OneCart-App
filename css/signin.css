@@ -1,0 +1,75 @@
+.login-container {
+    width: 95%;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+}
+.login-container h2 {
+    color: #133687;
+}
+#signin-form {
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    font-size: 12pt;
+    margin-top: 10px;
+}
+#signin-form * {
+    background-color: #fff;
+}
+#signin-form input,
+.singin-signup-button {
+    padding: 10px;
+    padding-top: 10px;
+    z-index: 50;
+    border-radius: 5px;
+    border: 2px solid #1d57cbff;
+}
+#signin-form input:focus {
+    border-width: 2.5px;
+}
+#signin-form label {
+    width: fit-content;
+    margin-bottom: -10px;
+    z-index: 100;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 0 0.5px;
+    border-radius: 5px;
+    color: #1d57cbff;
+    font-weight: 500;
+}
+.forget-passward-p {
+    width: fit-content;
+    font-size: 10pt;
+}
+.forget-passward-p a {
+    color: #132dc1;
+    text-decoration: underline;
+    transition: 5s;
+}
+.forget-passward-p a:active {
+    color: #2b236b;
+}
+#submit-button,
+.singin-signup-button {
+    height: 40px;
+    background-color: #1d57cbff;
+    margin-top: 20px;
+    color: white;
+    width: 100%;
+    max-width: 420px;
+    font-weight: 400;
+    font-size: 12pt;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    border: none;
+}
+.singin-signup-button {
+    margin-top: 5px;
+    background-color: #5174c0ff;
+}
