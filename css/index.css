@@ -3,7 +3,6 @@
     padding: 0;
     outline: none;
     text-decoration: none;
-    color: black;
     -webkit-tap-highlight-color: transparent;
 }
 body {
@@ -26,7 +25,7 @@ header {
     z-index: 1000;
 }
 
-header h1 {
+header h1 a {
     font-size: 19pt;
     color: #06145fff;
     font-weight: 1000;
