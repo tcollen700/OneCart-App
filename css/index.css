@@ -7,6 +7,8 @@
 }
 body {
     margin-top: 80px;
+    font-family: Arial;
+    background-color: #f1f0f0ff;
 }
 strong {
     font-weight: 500;
@@ -130,8 +132,6 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 2.5px;
-    padding: 5px;
-    background-color: #f1f0f0ff;
     margin-top: 5px;
 }
 
@@ -139,6 +139,7 @@ main {
     borde: 1px solid black;
     padding: 10px 5px;
     background-color: white;
+    border-radius: 10px;
 }
 .product-image {
     min-width: 120px;
@@ -171,6 +172,7 @@ product-info strong {
     width: 100%;
     border: none;
     background-color: #1d57cbff;
+    border-radius: 3px;
 }
 .add-to-cart-button svg {
     width: 20px;
@@ -179,7 +181,7 @@ product-info strong {
 }
 .product-quantity button,
 .product-quantity input {
-    border: 1px solid black;
+    border: none;
     width: 35px;
     height: 25px;
     background-color: #1d57cbff;
@@ -187,6 +189,7 @@ product-info strong {
     text-align: center;
     font-size: 12pt;
     color: white;
+    border-radius: 3px;
 }
 .cart-container {
     background-color: white;
@@ -241,7 +244,7 @@ product-info strong {
     text-align: center;
     padding: 5px 0 20px 0;
 }
-.cart-place-order-button,
+.cart-checkout-button,
 .cart-update-cart-button,
 .cart-clear-cart-button {
     display: block;
@@ -252,6 +255,9 @@ product-info strong {
     color: white;
     border-radius: 10px;
     font-size: 8pt;
+}
+.cart-checkout-button a {
+    color: white;
 }
 .cart-update-button-container button {
     margin: 10px;
