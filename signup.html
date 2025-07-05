@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/signin.css">
   <script defer src="js/index.js"></script>
-  <title>RiteCart | Shop online</title>
+  <title>RiteCart | Sign Up</title>
 </head>
-<body onload="renderProducts(), updateCartDisplay()">
+<body>
   <header>
     <h1><a href="index.html"><span>Rite</span>Cart</a></h1>
     <div class="header-cart-and-user-info">
@@ -56,9 +57,29 @@
     </p>
   </div>
   <main>
-    <h2 class="products-page-h2">Products</h2>
-    <div class="products-grid">
-
+    <div class="login-container">
+      <h2>Sign up</h2>
+      <form id="signin-form">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Patrick Roy">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Blue">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="prblue67@gmail.com">
+        <label for="confirm-email">Confirm Email</label>
+        <input type="email" id="confirm-email" name="confirm-email" placeholder="prblue@blue.com">
+        <label for="mobile_number">Mobile Number</label>
+        <input type="tel" id="mobile_number" name="mobile_number" inputmode="numeric" placeholder="0661000651">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••••">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••••">
+        <p class="forget-passward-p">
+          Forgetten password? <a href="#">Reset password</a>
+        </p>
+        <input type="submit" id="submit-button" value="Sign up">
+      </form>
+      <button class="singin-signup-button" onclick="window.location.href='signin.html'">Sign in</button>
     </div>
   </main>
 
