@@ -13,7 +13,7 @@ class Product {
   }
 }
 
-const cart = []; 
+let cart = [];
 let cartTotal = 0;
 const products = [
 new Product("Sasko Bread Everyday Brown 700g", "sasko-bread-everyday.webp", 18.99, 100),
@@ -27,6 +27,16 @@ new Product("Helios Cooking oil 5lt", "HELIOS-OIL-5LT.webp", 127.99, 100),
   new Product("Rainbow Frozen Chicken Mixed Portions 2KG", "RAINBOW-FROZEN-CHICKEN-MIXED-PORTIONS-2KG.webp", 109.99, 100),
   new Product("Simba-Creamy Cheddar Flavour Potato Chips 120g", "simba-creamy-cheddar-flavour-potato-chips-120g.webp", 21.99, 100)
 ];
+
+
+const savedCart = localStorage.getItem('cart');
+if (savedCart) {
+  cart = JSON.parse(savedCart);
+  cartTotal = parseFloat(localStorage.getItem('cartTotal'));
+  updateCartDisplay();
+  renderCartDetails();
+}
+console.log(cart);
 
 //console.log(products)
 
@@ -77,7 +87,7 @@ function addToCart(productId) {
   //console.log(product)
   
   // Check if product already in cart
-  const cartProduct = cart.find(cartProduct => cartProduct.product === product)
+  const cartProduct = cart.find(cartProduct => cartProduct.product.id === product.id)
   //console.log(cartProduct)
   
   if (cartProduct) {
@@ -111,7 +121,7 @@ function renderCartDetails(){
       <tr>
         <td><img src="images/${product.productImage}" height="30px"></td>
         <td>${product.productName}</td>
-        <td>${productQuantity}</td>
+        <td><input type="number" value="${productQuantity}" id="cart-qty-${product.id}"></td>
         <td>R${product.productPrice.toFixed(2)}</td>
         <td>R${(productQuantity*product.productPrice).toFixed(2)}</td>
       </tr>
@@ -124,6 +134,7 @@ function renderCartDetails(){
   else {
     document.querySelector(".cart-container-table").innerHTML = `<p class="cart-container-p">Cart is empty</p>`;
   }
+  SaveCart();
 }
 //show or hide cart
 function showOrHideCart() {
@@ -134,4 +145,40 @@ function showOrHideCart() {
     cartContainerElement.hidden = true;
   }
   renderCartDetails();
+}
+//adjusting item quantity in cart
+function updateQuantityInCart() {
+  cartTotal = 0;
+  for (let i = 0; i < cart.length; i++) {
+    const cartItem = cart[i];
+    const productId = cartItem.product.id;
+    const newQuantity = parseInt(document.querySelector(`#cart-qty-${productId}`).value);
+
+    //If quantity is invalid or zero, remove the item
+    if (isNaN(newQuantity) || newQuantity <= 0) {
+      cart.splice(i, 1);
+      continue;
+    }
+
+    // Update quantity
+    cartItem.quantity = newQuantity;
+
+    // Recalculate total
+    cartTotal += cartItem.product.productPrice * newQuantity;
+  }
+
+  // Update the display
+  updateCartDisplay();
+  renderCartDetails();
+}
+function clearCart() {
+  cart = []
+  cartTotal = 0;
+  updateCartDisplay();
+  renderCartDetails();
+}
+//save cart data on localstorage
+function SaveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+localStorage.setItem('cartTotal', cartTotal.toString());
 }
