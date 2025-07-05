@@ -175,6 +175,7 @@ product-info strong {
 .add-to-cart-button svg {
     width: 20px;
     margin: 2.5px;
+    color: white;
 }
 .product-quantity button,
 .product-quantity input {
