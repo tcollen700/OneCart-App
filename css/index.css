@@ -109,7 +109,7 @@ header h1 span {
     z-index: 500;
 }
 .site-promo p {
-    animation: sliding-text 10s linear 0s infinite alternate;
+    animation: sliding-text 20s linear 0s infinite alternate;
 }
 .site-promo * {
     color: white;
