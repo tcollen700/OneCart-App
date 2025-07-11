@@ -1,11 +1,56 @@
 class Product {
   static #count = 0;
-  constructor(productName, productImage, productPrice, productQuantity) {
+  static category = {
+    "cat01": "Appliances",
+    "cat02": "Baby Products",
+    "cat03": "Bakery",
+    "cat04": "Meat & Seafood",
+    "cat05": "Dairy & Eggs",
+    "cat06": "Frozen Foods",
+    "cat07": "Fruits & Vegetables",
+    "cat08": "Canned Goods",
+    "cat09": "Snacks",
+    "cat10": "Fizzy Drinks",
+    "cat11": "Cleaning Supplies",
+    "cat12": "Personal Care",
+    "cat13": "Cereal & Porridge",
+    "cat14": "Pasta, Rice & Grains",
+    "cat15": "Sauces, Mayonnaise & Pickles",
+    "cat16": "Stationery",
+    "cat17": "Spreads & Jam",
+    "cat18": "Alcohol & Tobacco",
+    "cat19": "Baking & Cooking Ingredients",
+    "cat20": "Breakfast Foods",
+    "cat21": "Candy & Chocolate",
+    "cat22": "Coffee & Tea",
+    "cat23": "Cooked Foods & Deli",
+    "cat24": "Cosmetics & Beauty",
+    "cat25": "Electronics & Gadgets",
+    "cat26": "Household Essentials",
+    "cat27": "Ice Cream & Desserts",
+    "cat28": "Sugar & Sweeteners",
+    "cat29": "Kitchenware & Utensils",
+    "cat30": "Laundry & Dishwashing",
+    "cat31": "Medicines & Health",
+    "cat32": "Nuts & Dried Fruits",
+    "cat33": "Oils & Vinegars",
+    "cat34": "Pet Food & Supplies",
+    "cat35": "Ready-to-Eat Meals",
+    "cat36": "Spices & Seasonings",
+    "cat37": "Toilet Paper & Tissue",
+    "cat38": "Water & Juices",
+    "cat39": "Wine & Spirits"
+  };
+
+  constructor(productName, productImage, productPrice, productQuantity, productCategory) {
     this.id = Product.#count++;
     this.productName = productName;
     this.productImage = productImage;
     this.productPrice = productPrice;
     this.productQuantity = productQuantity;
+    this.productCategory = productCategory.map(
+      categoryCode => Product.category[categoryCode]
+    );
   }
   
   static getNumberOfProducts() {
@@ -16,16 +61,16 @@ class Product {
 let cart = [];
 let cartTotal = 0;
 const products = [
-new Product("Sasko Bread Everyday Brown 700g", "sasko-bread-everyday.webp", 18.99, 100),
-new Product("Cadbury Lunch Bar 48g", "CADBURY-LUNCH-BAR-48G.webp", 12.99, 100),
-new Product("Sasko Bread Premium White 700g", "sasko-bread-premium.webp", 20.99, 100),
-new Product("Coca-cola Coke Original 2lt", "Coke-Original-Bottle-2lt.webp", 27.99, 100),
-new Product("Salati Pure White Sugar 10Kg", "selati-white-sugar-10kg.webp", 239.99, 100),
-new Product("Helios Cooking oil 5lt", "HELIOS-OIL-5LT.webp", 127.99, 100),
-  new Product("Enrista Instant Cappuccino Regular 10×12", "Enrista-Instant-Cappuccino-Regular-10x12g.webp", 59.99, 100),
-  new Product("Lucky Star Pilchards In Tomato Sauce 410g", "Lucky-star-pilchards-in-tomato-sauce-410g.webp", 24.99, 100),
-  new Product("Rainbow Frozen Chicken Mixed Portions 2KG", "RAINBOW-FROZEN-CHICKEN-MIXED-PORTIONS-2KG.webp", 109.99, 100),
-  new Product("Simba-Creamy Cheddar Flavour Potato Chips 120g", "simba-creamy-cheddar-flavour-potato-chips-120g.webp", 21.99, 100)
+new Product("Sasko Bread Everyday Brown 700g", "sasko-bread-everyday.webp", 18.99, 100, ["cat03"]),
+new Product("Cadbury Lunch Bar 48g", "CADBURY-LUNCH-BAR-48G.webp", 12.99, 100, ["cat21"]),
+new Product("Sasko Bread Premium White 700g", "sasko-bread-premium.webp", 20.99, 100, ["cat03"]),
+new Product("Coca-cola Coke Original 2lt", "Coke-Original-Bottle-2lt.webp", 27.99, 100, ["cat10"]),
+new Product("Salati Pure White Sugar 10Kg", "selati-white-sugar-10kg.webp", 239.99, 100, ["cat22","cat28", "cat19"]),
+new Product("Helios Cooking oil 5lt", "HELIOS-OIL-5LT.webp", 127.99, 100, ["cat33"]),
+  new Product("Enrista Instant Cappuccino Regular 10×12", "Enrista-Instant-Cappuccino-Regular-10x12g.webp", 59.99, 100,["cat22"]),
+  new Product("Lucky Star Pilchards In Tomato Sauce 410g", "Lucky-star-pilchards-in-tomato-sauce-410g.webp", 24.99, 100, ["cat08"]),
+  new Product("Rainbow Frozen Chicken Mixed Portions 2KG", "RAINBOW-FROZEN-CHICKEN-MIXED-PORTIONS-2KG.webp", 109.99, 100, ["cat06", "cat04"]),
+  new Product("Simba-Creamy Cheddar Flavour Potato Chips 120g", "simba-creamy-cheddar-flavour-potato-chips-120g.webp", 21.99, 100, ["cat09"])
 ];
 
 
@@ -36,35 +81,70 @@ if (savedCart) {
   updateCartDisplay();
   renderCartDetails();
 }
-console.log(cart);
+//console.log(cart);
 
 //console.log(products)
 
 function renderProducts() {
   let renderedProducts = "";
-  products.forEach(product => {
-    renderedProducts += `
-    <div class="product" data-id="${product.id}">
-        <div class="product-image">
-          <img src="images/${product.productImage}">
-        </div>
-        
-        <div class="product-info">
-          <p>${product.productName}</p>
-          <strong>R<span class="product-price">${product.productPrice.toFixed(2)}</span></strong>
-          <button class="add-to-cart-button" onclick="addToCart(${product.id})">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6h19l-3 10H6zm0 0l-.75-2.5M9.992 11h2m2 0h-2m0 0V9m0 2v2M11 19.5a1.5 1.5 0 0 1-3 0m9 0a1.5 1.5 0 0 1-3 0" /></svg>
-          </button>
+  const selectedCategories = getSelectedCategories();
+  //filters products by search keywords
+  const filteredProductsBySearch = searchProducts(products);
+  //fiters products by category(selected categories)
+  sortedProducts = sortProducts(filteredProductsBySearch ||products);
+  const newProducts = sortedProducts.filter(product => 
+  product.productCategory.some(category => 
+    selectedCategories.includes(category)
+    )
+  );
+  
+  let displayProducts = [...sortedProducts];
+  if (newProducts.length > 0){
+    displayProducts = [...newProducts];
+  }
+  
+  
+  //displays massages, if no items are found
+  if (newProducts.length == 0 && selectedCategories.length > 1 ) {
+    renderedProducts += `<p>Showing ${newProducts.length} products</p>`
+    renderedProducts += "<p>No items found from ";
+    
+    for (let i = 1; i < selectedCategories.length; i++){
+      if (i===selectedCategories.length-1){
+        renderedProducts += selectedCategories[i] + ".</br></br>More products coming soon, feel free to suggest products to be added using our contact form.<br>Thank you for your understanding.</p>"
+      }
+      else{
+        renderedProducts += selectedCategories[i] + ", "
+      }
+    }
+  }
+  else{
+    renderedProducts += `<p>Showing ${displayProducts.length} products</p>`
+    displayProducts.forEach(product => {
+      renderedProducts += `
+      <div class="product" data-id="${product.id}">
+          <div class="product-image">
+            <img src="images/${product.productImage}">
+          </div>
           
-          <div class="product-quantity">
-            <button onclick="adjustQuantity(${product.id}, -1)">-</button>
-            <input type="number" id="qty-${product.id}" value="1" min="1">
-            <button onclick="adjustQuantity(${product.id}, 1)">+</button>
+          <div class="product-info">
+            <p>${product.productName}</p>
+            <strong>R<span class="product-price">${product.productPrice.toFixed(2)}</span></strong>
+            <button class="add-to-cart-button" onclick="addToCart(${product.id})">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 6h19l-3 10H6zm0 0l-.75-2.5M9.992 11h2m2 0h-2m0 0V9m0 2v2M11 19.5a1.5 1.5 0 0 1-3 0m9 0a1.5 1.5 0 0 1-3 0" /></svg>
+            </button>
+            
+            <div class="product-quantity">
+              <button onclick="adjustQuantity(${product.id}, -1)">-</button>
+              <input type="number" id="qty-${product.id}" value="1" min="1">
+              <button onclick="adjustQuantity(${product.id}, 1)">+</button>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-  });
+      `;
+      //console.log(product.productCategory)
+    });
+  }
   document.querySelector(".products-grid").innerHTML = renderedProducts;
 }
 
@@ -181,4 +261,85 @@ function clearCart() {
 function SaveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
 localStorage.setItem('cartTotal', cartTotal.toString());
+}
+
+
+//product filters
+let filterByCatogorySelectorElement = document.getElementById("filter-by-catogory");
+
+for (productCategory in Product.category) {
+  //console.log(Product.category[productCategory])
+  filterByCatogorySelectorElement.innerHTML += `
+  <option id="${productCategory}" value="${Product.category[productCategory]}">${Product.category[productCategory]}</option>
+  `
+}
+function getSelectedCategories() {
+  const selectedCategories = Array.from(filterByCatogorySelectorElement.selectedOptions).map(category => category.value)
+  return selectedCategories;
+}
+
+
+//sort products
+const sortingSelectorElement = document.getElementById("sort-product");
+
+function sortProducts(products) {
+  const sortedProducts = [...products];
+  
+  switch(sortingSelectorElement.value) {
+    case "sort-by-price-lowest":
+      sortedProducts.sort((a, b) => a.productPrice - b.productPrice);
+      break;
+    case "sort-by-price-highest":
+      sortedProducts.sort((a, b) => b.productPrice - a.productPrice);
+      break;
+      
+    default:
+      return products;
+  }
+  
+  return sortedProducts;
+}
+
+
+//filter by search
+const searchInputElement = document.getElementById("search-for-products");
+
+function searchProducts(products) {
+  const searchQuery = searchInputElement.value.trim();
+
+  let searchKeywords = [];
+  let currentKeyword = "";
+  
+  for (const char of searchQuery) {
+    if (searchQuery != " ") {
+      if ([" ", ",", ";"].includes(char)) {
+        if (currentKeyword) {
+          searchKeywords.push(currentKeyword);
+          currentKeyword = "";
+        }
+      } else {
+        currentKeyword += char;
+      }
+    }
+  }
+  // Adds the last keyword if exists
+  if (currentKeyword) {
+    searchKeywords.push(currentKeyword);
+  }
+  console.log(searchKeywords);
+  if (searchQuery) {
+  // Then use these keywords to filter products:
+  const filteredProducts = products.filter(product => searchKeywords.some(keyword => 
+      product.productName.toLowerCase().includes(keyword.toLowerCase())
+    )
+  );
+  return filteredProducts;
+  };
+}
+
+//Reset fiters
+function resetProductFilters() {
+  filterByCatogorySelectorElement.value= "";
+  searchInputElement.value="";
+  sortingSelectorElement.value="";
 }
