@@ -56,6 +56,19 @@
     </p>
   </div>
   <main>
+    <div id="product-filters-container">
+      <input type="search" id="search-for-products" placeholder="Search for a product" onkeydown="renderProducts()">
+      <select id="filter-by-catogory" multiple>
+        <option value="" disabled selected>Filter by</option>
+      </select>
+      <select id="sort-product">
+        <option value="" disabled selected>Sort by</option>
+        <option value="sort-by-price-lowest">Price(Low to High)</option>
+        <option value="sort-by-price-highest">Price(High to Low)</option>
+      </select>
+      <button onclick="renderProducts()">Apply filters</button>
+      <button type="reset" onclick="resetProductFilters(), renderProducts()">Reset filters</button>
+    </div>
     <h2 class="products-page-h2">Products</h2>
     <div class="products-grid">
 
