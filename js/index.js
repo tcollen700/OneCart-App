@@ -150,10 +150,14 @@ function renderProducts() {
 
 function updateCartDisplay() {
   const itemsInCart = cart.reduce((total, item) => total + item.quantity, 0) || 0;
-  document.querySelector(".cart-items-count").textContent = itemsInCart;
-  document.querySelector(".cart-container-summary-items-count").textContent = itemsInCart;
-  document.querySelector(".header-cart-total span, .cart-container-summary-total").textContent = cartTotal.toFixed(2);
-  document.querySelector(".cart-container-summary-total").textContent = cartTotal.toFixed(2);
+  try {
+    document.querySelector(".cart-items-count").textContent = itemsInCart;
+    document.querySelector(".cart-container-summary-items-count").textContent = itemsInCart;
+    document.querySelector(".header-cart-total span, .cart-container-summary-total").textContent = cartTotal.toFixed(2);
+    document.querySelector(".cart-container-summary-total").textContent = cartTotal.toFixed(2);
+  } catch (err) {
+    //console.error('Error:', err);
+  }
 }
 
 function addToCart(productId) {
@@ -209,7 +213,11 @@ function renderCartDetails(){
   })
   cartTable += "</table>"
   if (cart.length > 0) {
-  document.querySelector(".cart-container-table").innerHTML = cartTable;
+    try {
+      document.querySelector(".cart-container-table").innerHTML = cartTable;
+    } catch (err) {
+      //console.error('Error:', err);
+    }
   }
   else {
     document.querySelector(".cart-container-table").innerHTML = `<p class="cart-container-p">Cart is empty</p>`;
@@ -261,85 +269,4 @@ function clearCart() {
 function SaveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
 localStorage.setItem('cartTotal', cartTotal.toString());
-}
-
-
-//product filters
-let filterByCatogorySelectorElement = document.getElementById("filter-by-catogory");
-
-for (productCategory in Product.category) {
-  //console.log(Product.category[productCategory])
-  filterByCatogorySelectorElement.innerHTML += `
-  <option id="${productCategory}" value="${Product.category[productCategory]}">${Product.category[productCategory]}</option>
-  `
-}
-function getSelectedCategories() {
-  const selectedCategories = Array.from(filterByCatogorySelectorElement.selectedOptions).map(category => category.value)
-  return selectedCategories;
-}
-
-
-//sort products
-const sortingSelectorElement = document.getElementById("sort-product");
-
-function sortProducts(products) {
-  const sortedProducts = [...products];
-  
-  switch(sortingSelectorElement.value) {
-    case "sort-by-price-lowest":
-      sortedProducts.sort((a, b) => a.productPrice - b.productPrice);
-      break;
-    case "sort-by-price-highest":
-      sortedProducts.sort((a, b) => b.productPrice - a.productPrice);
-      break;
-      
-    default:
-      return products;
-  }
-  
-  return sortedProducts;
-}
-
-
-//filter by search
-const searchInputElement = document.getElementById("search-for-products");
-
-function searchProducts(products) {
-  const searchQuery = searchInputElement.value.trim();
-
-  let searchKeywords = [];
-  let currentKeyword = "";
-  
-  for (const char of searchQuery) {
-    if (searchQuery != " ") {
-      if ([" ", ",", ";"].includes(char)) {
-        if (currentKeyword) {
-          searchKeywords.push(currentKeyword);
-          currentKeyword = "";
-        }
-      } else {
-        currentKeyword += char;
-      }
-    }
-  }
-  // Adds the last keyword if exists
-  if (currentKeyword) {
-    searchKeywords.push(currentKeyword);
-  }
-  console.log(searchKeywords);
-  if (searchQuery) {
-  // Then use these keywords to filter products:
-  const filteredProducts = products.filter(product => searchKeywords.some(keyword => 
-      product.productName.toLowerCase().includes(keyword.toLowerCase())
-    )
-  );
-  return filteredProducts;
-  };
-}
-
-//Reset fiters
-function resetProductFilters() {
-  filterByCatogorySelectorElement.value= "";
-  searchInputElement.value="";
-  sortingSelectorElement.value="";
 }
