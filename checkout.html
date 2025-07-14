@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/signin.css">
+  <link rel="stylesheet" href="css/checkout.css">
   <script defer src="js/index.js"></script>
+  <script defer src="js/checkout.js"></script>
   <title>RiteCart | Sign In</title>
 </head>
-<body>
+<body onload="renderCheckoutCart(), renderCheckoutSummary()">
   <header>
     <h1><a href="index.html"><span>Rite</span>Cart</a></h1>
     <div class="header-cart-and-user-info">
@@ -57,9 +58,97 @@
     </p>
   </div>
   <main>
-    <h1>Checkout</h1>
-    <div>
+    <h1 class="checkout-h1">Checkout</h1>
+    <div class="checkout-container">
+      <div>
+        <h2>Your order</h2>
+        <div>
+          <h3>In your cart</h3>
+          <div class="checkout-cart-container">
+          </div>
 
+          <div class="checkout-cart-summary">
+            <span>Items in cart</span>
+            <span>:</span>
+            <strong>
+              <span class="checkout-items-in-cart"></span> items
+            </strong>
+
+            <span>Cart total(excl. tax)</span>
+            <span>:</span>
+            <strong>
+              R<span class="cart-total-excl-tax"></span>
+            </strong>
+
+            <span>Total tax(15%)</span>
+            <span>:</span>
+            <strong>
+              R<span class="cart-total-tax"></span>
+            </strong>
+
+            <span>Shipping fee and Service fee</span>
+            <span>:</span>
+            <strong>
+              R<span class="shipping-and-service-fees"></span>
+            </strong>
+            <span>Cart total(incl. tax and fees)</span>
+            <span>:</span>
+            <strong>
+              R<span class="cart-total-incl-tax-fees"></span>
+            </strong>
+          </div>
+        </div>
+      </div>
+      <form id="checkout-form">
+        <h2>Shipping info</h2>
+        <div>
+          <h3>Recipient Details</h3>
+          <div>
+            <div>
+              <label for="firstname">First Name</label>
+              <input type="text" id="firstname" name="firstname" placeholder="Patrick Roy">
+            </div>
+            <div>
+              <label for="lastname">Last Name</label>
+              <input type="text" id="lastname" name="lastname" placeholder="Blue">
+            </div>
+          </div>
+          <label for="mobile_number">Mobile Number</label>
+          <input type="tel" id="mobile_number" name="mobile_number" inputmode="numeric" placeholder="0661000651">
+          <h3>Recipient Address</h3>
+          <label for="address-line-1">Address Line 1</label>
+          <input type="text" id="address-line-1" name="address-line-1" placeholder="20875 Ga Moretsele">
+          <label for="address-line-2">Address Line 2(optional)</label>
+          <input type="text" id="address-line-2" name="address-line-2" placeholder="Next to Moretsele Primary School">
+          <label for="suburb">Suburb</label>
+          <input type="text" id="suburb" name="suburb" placeholder="Jane Furse">
+          <div>
+            <div>
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="Jane Furse">
+            </div>
+            <div>
+              <label for="postal-code">Postal code</label>
+              <input type="numeric" id="postal-code" name="postal-code" placeholder="Jane Furse">
+            </div>
+          </div>
+          <label>Province</label>
+          <select>
+            <option value="Limpopo" selected>Limpopo</option>
+          </select>
+          <label>Country</label>
+          <select>
+            <option value="South Africa" selected>South Africa</option>
+          </select>
+          <h3>Additional Information(optional)</h3>
+          <label>Note</label>
+          <textarea rows="5"></textarea>
+          <div class="checkout-buttons">
+            <a href="index.html">Continue shopping</a>
+            <input type="submit" value="Continue to payment">
+          </div>
+        </div>
+      </form>
     </div>
   </main>
 
