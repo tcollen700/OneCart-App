@@ -1,0 +1,94 @@
+@media (max-width: 480px) {
+    .checkout-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        grid-gap: 15px;
+        margin: auto;
+    }
+}
+@media (min-width: 480px) {
+    .checkout-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+        grid-gap: 15px;
+        margin: auto;
+    }
+}
+.checkout-container > div > div,
+.checkout-container > form > div {
+    background-color: white;
+    padding: 10px 10px 30px 10px;
+    border-radius: 5px;
+    font-size: 11pt;
+}
+.checkout-container h2,
+.checkout-container h3 {
+    margin-bottom: 10px;
+}
+.checkout-h1 {
+    margin-bottom: 10px;
+}
+.checkout-cart-container tr {
+    display: grid;
+    grid-template-columns: 50px 1fr 30px 50px 60px;
+    grid-gap: 10px;
+    margin-bottom: 10px;
+}
+.checkout-cart-container tr td:first-child {
+    width: 100%;
+    background-color: white;
+    padding: 2.5px;
+}
+.checkout-cart-container img {
+    display: block;
+    height: 50px;
+    margin: auto;
+}
+.checkout-cart-container input {
+    width: 30px;
+    border: none;
+    padding: 0 5px;
+    background-color: transparent;
+}
+.checkout-cart-summary {
+    display: grid;
+    grid-template-columns: 2fr 10px 1fr;
+    grid-gap: 10px;
+    width: 80%;
+    padding: 0 10px;
+}
+#checkout-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#checkout-form input,
+#checkout-form select,
+#checkout-form textarea,
+#checkout-form a {
+    padding: 10px;
+    z-index: 50;
+    border-radius: 5px;
+    border: 2px solid #1d57cbff;
+    background-color: transparent;
+}
+.checkout-buttons a,
+.checkout-buttons input {
+    background-color: #1d57cbff !important;
+    color: white;
+    margin: 20px;
+}
+#checkout-form > div > label {
+    margin-bottom: -10px;
+}
+#checkout-form > div > div {
+    display: flex;
+    column-gap: 5px;
+    justify-content: center;
+}
+#checkout-form > div > div > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px;
+}

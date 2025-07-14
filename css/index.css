@@ -148,7 +148,9 @@ main {
 #product-filters-container button {
     height: 35px;
 }
-.products-page-h2 {
+h1,
+h2,
+h3 {
     color: #133687;
 }
 .products-grid {
@@ -227,11 +229,11 @@ product-info strong {
 }
 .cart-container {
     background-color: white;
-    width: 300px;
+    width: 350px;
     position: absolute;
     border: 0.5px solid #1d57cbff;
     top: 50px;
-    right: 80px;
+    right: 60px;
     padding: 5px;
     border-radius: 5px;
     z-index: 5000;
@@ -249,7 +251,7 @@ product-info strong {
 }
 
 .cart-container-table {
-    font-size: 8pt;
+    font-size: 10pt;
     padding: 5px 0 5px 0;
 }
 .cart-container-table img {
@@ -287,8 +289,8 @@ product-info strong {
     background-color: #1d57cbff;
     margin: 10px auto;
     color: white;
-    border-radius: 10px;
-    font-size: 8pt;
+    border-radius: 3px;
+    font-size: 10pt;
 }
 .cart-checkout-button a {
     color: white;
