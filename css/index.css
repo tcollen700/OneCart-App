@@ -150,6 +150,9 @@ main {
 }
 #product-filters-container input,
 #product-filters-container select {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     height: 45px;
     border-radius: 3px;
     border: 2px solid #1d57cbff;
