@@ -5,11 +5,24 @@
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
+
 body {
     margin-top: 80px;
     font-family: Arial;
     background-color: #f1f0f0ff;
     font-size: 1rem;
+}
+h1 {
+    font-size: 20pt;
+    margin-bottom: 5px;
+}
+main {
+    min-height: 50vh;
+}
+@media (mim-width: 480px) {
+    main {
+        margin: 0 10px;
+    }
 }
 strong {
     font-weight: 500;
@@ -30,7 +43,7 @@ header {
 
 header h1 a {
     font-size: 19pt;
-    color: #06145fff;
+    color: #092a7d;
     font-weight: 1000;
 }
 header h1 span {

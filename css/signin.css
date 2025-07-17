@@ -1,10 +1,16 @@
 .login-container {
     width: 95%;
-    max-width: 600px;
-    padding: 10px;
+    max-width: 420px;
+    padding: 30px 10px;
     background-color: #fff;
     margin: auto;
+    margin-top: 40px;
     border-radius: 10px;
+}
+@media (min-width: 520px) {
+    .login-container {
+        padding: 30px;
+    }
 }
 .login-container h2 {
     color: #133687;
