@@ -222,6 +222,9 @@ function renderCartDetails(){
   else {
     document.querySelector(".cart-container-table").innerHTML = `<p class="cart-container-p">Cart is empty</p>`;
   }
+  document.querySelector(".cart-container-table").innerHTML += `
+  <svg class="close-cart" onclick="showOrHideCart()" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><path fill="currentColor" d="M18.3 5.71a.996.996 0 0 0-1.41 0L12 10.59L7.11 5.7A.996.996 0 1 0 5.7 7.11L10.59 12L5.7 16.89a.996.996 0 1 0 1.41 1.41L12 13.41l4.89 4.89a.996.996 0 1 0 1.41-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4" stroke-width="0.8" stroke="#1d57cbff"/></svg>
+  `
   SaveCart();
 }
 //show or hide cart
