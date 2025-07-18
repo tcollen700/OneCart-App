@@ -127,17 +127,8 @@ header h1 span {
 .site-promo * {
     color: white;
 }
-
-@keyframes sliding-text {
-    0% {
-        margin-left: 110vw;
-    }
-    100% {
-        margin-left: -110vw;
-    }
-}
 main {
-    padding: 5px;
+    padding: 10px;
 }
 #product-filters-container {
     width: 100%;
@@ -245,11 +236,12 @@ product-info strong {
 }
 .cart-container {
     background-color: white;
-    width: 350px;
+    width: 80vw;
+    max-width: 500px;
     position: absolute;
     border: 0.5px solid #1d57cbff;
     top: 50px;
-    right: 60px;
+    right: 55px;
     padding: 5px;
     border-radius: 5px;
     z-index: 5000;
@@ -282,6 +274,7 @@ product-info strong {
     margin: 5px 0;
 }
 .cart-container-table td {
+    width: 100%;
     border-top: 1px solid #1d57cbff;
     padding-top: 5px;
 }
@@ -321,4 +314,9 @@ product-info strong {
 button:active,
 #submit-button:active {
     filter: brightness(1.5);
+}
+.close-cart {
+    position: absolute;
+    top: 2.5px;
+    right: 5px;
 }
